@@ -17,10 +17,19 @@ def click_btnRun():
     label3 = tkinter.Label(root, text=str2, font=("맑은 고딕",10))
     label3.place(x=25,y=152)
 
+def mouseMove(event):
+    x = event.x
+    y = event.y
+    labelMouse.config(text=str(x)+","+str(y))
+    labelMouse.place(x=0,y=280)
+
 # tkinter 기본문 시작
 root = tkinter.Tk()
 root.title("산술 연산자")
 root.geometry("400x300")
+
+root.bind("<Motion>",mouseMove)
+labelMouse = tkinter.Label(root, text=",", font=("맑은 고딕",10))
 
 # 라벨 만들기 (설명이 담긴 문자열 1,2)
 label1 = tkinter.Label(root, text="나눠 지는 수", font=("맑은 고딕",10))
