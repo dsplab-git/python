@@ -16,10 +16,20 @@ def click_btnRun():
     label3 = tkinter.Label(root, text=str1, font=("맑은 고딕",10))
     label3.place(x=110,y=100)
 
+#좌표 출력기
+def mouseMove(event):
+    x = event.x
+    y = event.y    
+    labelMouse["text"]=str(x)+","+str(y)
 
 root = tkinter.Tk()
 root.title("성적 계산기")
-root.geometry("250x130")
+root.geometry("250x150")
+
+#좌표 출력기
+root.bind("<Motion>", mouseMove)
+labelMouse = tkinter.Label(root, text=",", font=("맑은 고딕",10))
+labelMouse.place(x=0,y=130)
 
 label1 = tkinter.Label(root, text="과목(이수학점)", font=("맑은 고딕",10))
 label2 = tkinter.Label(root, text="성적", font=("맑은 고딕",10))
